@@ -1,0 +1,76 @@
+html {
+  box-sizing: border-box;
+}
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+body {
+  /* display: flex; */
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  justify-content: center;
+}
+h1 {
+  text-align: center;
+}
+/*************** class indicators*****************/
+.container {
+  display: flex;
+  width: 90vw;
+  margin:auto;
+}
+.panel:nth-of-type(1) {
+  background-image: url("https://images.unsplash.com/photo-1547036967-23d11aacaee0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NDh8fG5hdHVyZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60")
+}
+.panel:nth-of-type(2) {
+  background-image: url("https://images.unsplash.com/photo-1531737212413-667205e1cda7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2834&q=80");
+}
+.panel:nth-of-type(3) {
+  background-image: url("https://images.unsplash.com/photo-1531804159968-24716780d214?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=776&q=80");
+}
+.panel:nth-of-type(4) {
+  background-image: url("https://images.unsplash.com/photo-1502602898657-3e91760cbb34?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1773&q=80")
+}
+.panel:nth-of-type(5) {
+  background-image: url("https://images.unsplash.com/photo-1595850344461-dcbec3a62f67?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=786&q=80")
+}
+.panel {
+  /* Change background - size: auto 100% to "cover" to preserve rounded corners on large screen */
+  background-size: cover;
+  background-position: center;
+  background-repeat:no-repeat;
+  height: 80vh;
+  border-radius: 50px;
+  color: white;
+  cursor: pointer;
+  flex: 0.5;
+  margin: 10px;
+  position: relative;
+  transition: flex 0.7s ease-in;
+}
+.panel h3 {
+  font-size: 25px;
+  position: absolute;
+  bottom: 20px;
+  left:10px;
+  opacity: 0;
+}
+.panel.active {
+  flex: 3;
+}
+.panel.active h3 {
+  opacity: 1;
+}
+/* If screen really small we want show only three lanscape photos instead of five  */
+@media (max-width: 480px){
+  /* Any styles in scope only effect if screen is under 480 px */
+    .container {
+      width = 100vw;
+    }
+    /* pseudo selector by using colon and "nth-of-type" */
+    .panel:nth-of-type(4),
+    .panel:nth-of-type(5) {
+      display: none;
+    }
+
+}
